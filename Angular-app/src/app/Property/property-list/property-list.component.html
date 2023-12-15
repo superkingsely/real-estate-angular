@@ -1,0 +1,25 @@
+<div class="col-12 d-flex">
+    <strong>
+        <p>Date: {{todaysDate|date:'medium'|uppercase}}</p>
+    </strong>
+    <!-- <div class="search-form">
+        <button class="btn-search" (click)="handleSearch()">Search</button>
+        <input type="text" [(ngModel)]="City">
+        <button class="btn-clear" (click)="handleClear()">Clear</button>
+    </div> -->
+
+    <div class="select ms-auto">
+        <label > Sort by: </label>
+        <select [(ngModel)]="SortByParams">
+            <option value="City">City</option>
+            <option value="Price">Price</option>
+        </select>
+        <button (click)="handleSortOrder()">&DownArrowUpArrow; </button>
+    </div>
+</div>
+<div class="row">
+    <div *ngFor="let property of properties|Filter:search:'City'|Sort:[SortByParams,SortDir]" class="col-lg-3 col-md-6 shadow-lg">
+        <app-property-card [property]="property"></app-property-card>
+        <!-- d above == property binding -->
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="col-6 m-auto">
+    <div class="card mt-5">
+      <div class="card-header">
+        <h3>Register</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="regFormModel" (ngSubmit)="handlesubmit()" >
+          <div class="form-group ">
+            <label for="">Name:</label>
+            <input type="text" class="form-control" formControlName="userName" >
+
+            <!-- <span class="display-error" *ngIf=" !regFormModel.controls?.['valid'] && regFormModel.controls?.['userName']?.touched " >
+              name pls
+            </span> -->
+            <span class="display-error" *ngIf=" !regFormModel.get('userName')?.valid && regFormModel.get('userName')?.touched  " >
+              name pls
+            </span>
+          </div>
+          <div class="form-group ">
+            <label for="">Email:</label>
+            <input type="text" class="form-control" formControlName="userEmail">
+            <span class="display-error" *ngIf=" !regFormModel.get('userEmail')?.valid && regFormModel.get('userEmail')?.touched  " >
+              <!-- multiple error -->
+              <span *ngIf="regFormModel.get('userEmail')?.hasError('required')">email pls</span>
+              <span *ngIf="regFormModel.get('userEmail')?.hasError('email')">email not Valid</span>
+            </span>
+          </div>
+          <div class="form-group ">
+            <label for="">Mobile:</label>
+            <input type="text" class="form-control" formControlName="userMobile">
+            <span class="display-error" *ngIf="!regFormModel.get('userMobile')?.valid && regFormModel.get('userMobile')?.touched">
+              <span *ngIf="regFormModel.get('userMobile')?.hasError('required')">pls insert your mobile 
+              </span>
+              <span class="display-error" *ngIf="regFormModel.get('userMobile')?.errors?.['numbers']">
+                Numbers pls
+              </span>
+            </span>
+          </div>
+          <!-- <div class="password" [formGroup]="password">
+
+          </div> -->
+          <div class="form-group ">
+            <label for="">Password:</label>
+            <input type="text" class="form-control" formControlName="userPassword"  >
+            <span class="display-error" *ngIf="!regFormModel.get('userPassword')?.valid && regFormModel.get('userPassword')?.touched ">
+              <span *ngIf=" regFormModel.get('userPassword')?.hasError('required') ">
+                password pls
+              </span>
+            </span>
+          </div>
+          <div class="form-group ">
+            <label for="">Confirm Password:</label>
+            <input type="text" class="form-control" formControlName="userConfirmPassword">
+            <span class="display-error" *ngIf="!regFormModel.get('userConfirmPassword')?.valid && regFormModel.get('userConfirmPassword')?.touched ">
+              <span *ngIf=" regFormModel.get('userConfirmPassword')?.hasError('required') ">
+                pls confirm password
+              </span>
+              <!-- NEVER DO THIS FOR COSTUM VALIDATION -->
+              <!-- <span *ngIf="regFormModel.get('userConfirmPassword')?.errors?.['notmatched'] ">
+                Password not Matched
+              </span> -->
+            </span>
+            <!-- INSTEAD DO THIS -->
+            <span  class="display-error inval" *ngIf="regFormModel.errors?.['notmatched']&& !regFormModel.valid && regFormModel.get('userConfirmPassword')?.touched && !regFormModel.get('userConfirmPassword')?.hasError('required')" >
+              password not matched
+            </span>
+          </div>
+
+          <br>
+          <div class="form-group ">
+            <!-- [disabled]="regFormModel.errors?.['notmatched']" [disabled]="!regFormModel.valid" -->
+           <button class="btn btn-outline-primary me-2" >Register</button>
+           <a class="btn btn-outline-danger">Cancel</a>
+          </div>
+          <!-- <h1>form Error:{{regFormModel.get('userConfirmPassword')?.errors| json}}</h1> -->
+          <!-- <h1>form Error:{{regFormModel.errors | json}}</h1>
+          <p>form value :{{regFormModel.value | json}}</p>
+          <p>form status:{{regFormModel.status}}</p> -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

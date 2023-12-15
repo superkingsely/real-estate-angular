@@ -1,0 +1,14 @@
+.ng-invalid.ng-touched{
+    border-color: red;
+}
+.inval{
+    border-color: red;
+}
+
+
+.display-error{
+    color: red;
+}
+.ng-valid{
+    border-color: rgb(109, 221, 152);
+}

@@ -1,0 +1,16 @@
+.ng-invalid.ng-touched{
+    border-color: red;
+}
+.display-error{
+    color: red;
+}
+.photo-control{
+    min-height: 300px;
+    /* vertical-align: middle; */
+    text-align: center;
+    border: 1px dashed blue;
+    margin: 5px;
+}
+.card-header{
+    background-color: rgb(15, 149, 238);
+}

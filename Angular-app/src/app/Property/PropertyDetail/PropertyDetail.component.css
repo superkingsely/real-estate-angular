@@ -1,0 +1,16 @@
+.card{
+    min-height: 600px;
+}
+/* .tab-panel{
+    height: 600px;
+} */
+carousel img{
+    height: 450px;
+}
+.card img{
+    padding: 10px;
+    height: 250px;
+}
+.card-title{
+    color: #0069d9;
+}

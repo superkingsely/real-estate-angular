@@ -1,0 +1,19 @@
+.list{
+    background-color: yellow;
+}
+.select{
+    height:30px;
+    overflow: hidden;
+    display: none;
+}
+.select select{
+    height: 100%;
+}
+@media screen and (max-width:600px) {
+    .select{
+        display: block;
+    }
+    .select label{
+        display: none;
+    }
+}

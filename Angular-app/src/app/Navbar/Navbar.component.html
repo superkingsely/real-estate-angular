@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">Real-Estate-Management</a>
+    <div class="ms-auto control d-flex align-items-center">
+          
+      <div class="search-form">
+          <button class="btn-search" (click)="handleSearch()">Search</button>
+          <input type="text" [(ngModel)]="City">
+          <button class="btn-clear" (click)="handleClear()">Clear</button>
+      </div>
+      <div class="select">
+          <label > Sort by: </label>
+          <select [(ngModel)]="SortByParams" #select name="SortByParams" (change)="handleselect($event)">
+              <option [value]="value" *ngFor="let value of values" >{{value}}</option>
+          </select>
+          <button (click)="handleSortOrder()">&DownArrowUpArrow; </button>
+      </div>
+    </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/">Sell</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/rent">Rent</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/add">Add-Property</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ">
+        <li class="nav-item" *ngIf="!loggedin()">
+          <a class="nav-link ml-auto" routerLink="/Login">Login</a>
+        </li>
+        <li class="nav-item ml-auto" *ngIf="!loggedin()">
+          <a class="nav-link" routerLink="/Register">Register</a>
+        </li>
+        <!-- <li class="nav-item ml-auto d-flex " *ngIf="loggedin()" (click)="logout()">
+          <p class="pt-2">welcome {{loggedin()}}</p>
+          <a class="nav-link">Logout</a>
+        </li> -->
+        <div class="btn-group" dropdown placement="bottom right" *ngIf="loggedin()">
+          <a id="button-alignment" dropdownToggle type=""
+                  class="nav-link  dropdown-toggle" aria-controls="dropdown-alignment">
+           Welcome {{luser}} <span class="ms-3">Logout</span> <span class="caret"></span>
+          </a>
+          <ul id="dropdown-alignment" *dropdownMenu class="dropdown-menu dropdown-menu-right"
+              role="menu" aria-labelledby="button-alignment">
+            <li role="menuitem"><a class="dropdown-item" ><i class="ri-dashboard-line pe-2"></i>View Dashboard</a></li>
+            <li role="menuitem"><a class="dropdown-item" ><i class="ri-contacts-line pe-2"></i>My Profile</a></li>
+            <li role="menuitem"><a class="dropdown-item" ><i class="ri-key-2-line pe-2"></i>Change Password</a></li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem"><a class="dropdown-item"  (click)="logout()"><i class="ri-logout-box-r-line  pe-2"></i>Logout </a></li>
+          </ul>
+        </div>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- <ul class="navbar-nav ms-auto">
+  <li class="nav-item ">
+    <a class="nav-link ml-auto" routerLink="/Login">Login</a>
+  </li>
+  <li class="nav-item ml-auto">
+    <a class="nav-link" routerLink="/Register">Register</a>
+  </li>
+</ul> -->

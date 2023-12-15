@@ -1,0 +1,33 @@
+.btn-group{
+    cursor: pointer;
+}
+.control{
+}
+.search-form{
+    height:30px;
+    overflow: hidden;
+}
+.search-form input{
+    border: 0px;
+    outline: none;
+    background-color: rgba(128, 128, 128, 0.178);
+    height: 100%;
+}
+.search-form button{
+    border: 0px;
+    outline: none;
+    background-color: rgba(128, 128, 128, 0.178);
+    height: 100%;
+}
+.select{
+    height:30px;
+    overflow: hidden;
+}
+.select select{
+    height: 100%;
+}
+@media screen and (max-width:600px) {
+    .select{
+        display: none;
+    }
+}

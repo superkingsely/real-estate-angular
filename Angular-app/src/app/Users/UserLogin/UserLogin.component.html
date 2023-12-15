@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-6 border m-auto">
+    <div class="card mt-5">
+      <div class="card-header">
+        <h3>Login</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="logModel" (ngSubmit)="handlesubmit(logModel)" >
+          <div class="form-group ">
+            <label for="">Name:</label>
+            <input type="text" class="form-control" formControlName="name">
+            <span class="display-error" *ngIf="logModel.get('name')?.touched && !logModel.get('name')?.valid">
+               <span>
+                name required
+               </span>
+            </span>
+          </div>
+          <div class="form-group ">
+            <label for="">Password:</label>
+            <input type="text" class="form-control" formControlName="password">
+            <span class="display-error" *ngIf="logModel.get('password')?.touched && !logModel.get('password')?.valid">
+              <span>
+               password required
+              </span>
+           </span>
+          </div><br>
+          <div class="form-group ">
+           <button class="btn btn-outline-primary me-2">Login</button>
+           <a class="btn btn-outline-danger" routerLink="/">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

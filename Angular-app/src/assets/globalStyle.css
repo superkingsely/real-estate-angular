@@ -1,0 +1,11 @@
+.btn-group > label[ng-reflect-btn-radio]{
+    border-radius: 44px;
+    padding: 0 15px;
+    /* line-height: 10px; */
+}
+input.ng-valid.ng-touched.ng-dirty{
+    border-color: rgb(109, 221, 152);
+}
+input.ng-valid.ng-touched.ng-pristine{
+    border-color: rgb(221, 109, 128);
+}
